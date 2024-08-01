@@ -1,0 +1,374 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: #333;
+  background-image: url('ba2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.chatbot-container {
+  width: 100%;
+  max-width: 500px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 0 10px;
+}
+
+#header {
+
+  background-color: #e60072;
+  color: #ffffff;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+#chatbot {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  height: 400px; /* Set a fixed height for the chatbot container */
+}
+
+#conversation {
+  flex: 1; /* Allows conversation to grow and shrink with the chatbot container */
+  overflow-y: auto; /* Adds vertical scrollbar */
+  margin-bottom: 10px; /* Space between messages and input controls */
+}
+
+.chatbot-message {
+  margin-bottom: 15px;
+}
+
+.chatbot-text {
+  background-color: #020406b8;
+  color: #ffffff;
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 75%;
+  font-size: 1em;
+  display: inline-block;
+  animation: message-fade-in 0.3s ease-in-out;
+}
+
+.user-message .chatbot-text {
+  background-color: #f1f1f1;
+  color: #333;
+  margin-left: auto;
+}
+
+#controls {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+}
+
+#input-field {
+  flex: 1;
+  height: 40px;
+  border: none;
+  padding: 0 10px;
+  font-size: 1em;
+  border-radius: 20px;
+  background-color: transparent;
+  color: #333;
+}
+
+#input-field::placeholder {
+  color: #999;
+}
+
+#input-field:focus {
+  outline: none;
+}
+
+#submit-button {
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.send-icon {
+  width: 24px;
+  height: 24px;
+}
+
+#action-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+#action-buttons .btn1,
+#action-buttons .btn2,
+#action-buttons .btn3 {
+  background-color: #e60072;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+#action-buttons button:hover {
+  background-color: #0056b3;
+}
+
+.heading-name {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #5f6265;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5f6265; 
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  #header {
+      font-size: 1.4em;
+      padding: 12px;
+  }
+
+  #conversation {
+      height: 250px;
+      padding: 10px;
+  }
+
+  .chatbot-text {
+      font-size: 0.95em;
+      padding: 8px 12px;
+  }
+
+  #input-field {
+      height: 35px;
+      font-size: 0.9em;
+  }
+
+  .send-icon {
+      width: 22px;
+      height: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .chatbot-container {
+      max-width: 90%;
+  }
+
+  #header {
+      font-size: 1.2em;
+      padding: 10px;
+  }
+
+  #conversation {
+      height: 200px;
+  }
+
+  .chatbot-text {
+      font-size: 0.9em;
+      padding: 6px 10px;
+  }
+
+  #input-field {
+      height: 30px;
+      font-size: 0.8em;
+  }
+
+  .send-icon {
+      width: 20px;
+      height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #header {
+      font-size: 1em;
+      padding: 8px;
+  }
+
+  #conversation {
+      height: 180px;
+  }
+
+  .chatbot-text {
+      font-size: 0.8em;
+      padding: 5px 8px;
+  }
+
+  #input-field {
+      height: 25px;
+      font-size: 0.8em;
+  }
+
+  .send-icon {
+      width: 18px;
+      height: 18px;
+  }
+}
+
+/* Navigation Bar Styles */
+nav,
+.nav-item {
+  display: flex;
+}
+
+nav {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+  border-radius: 6px;
+  background-image: linear-gradient(
+    rgb(48, 48, 48) 13%,
+    rgb(30, 30, 30) 40%,
+    #0c0d11 86%
+  );
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 0 -2px 0 black;
+  cursor: pointer;
+  box-shadow: 1px 2px 4px rgb(20, 20, 20), 0 4px 12px rgb(10, 10, 10);
+  overflow: hidden;
+}
+
+.nav-item {
+  flex-direction: row-reverse;
+  font-size: 0.8999rem;
+  line-height: 1rem;
+  align-items: center;
+  min-width: 120px;
+  justify-content: space-between;
+  padding: 10px;
+  transition: all 80ms ease;
+
+  &.active {
+    color: #e60072;
+    text-shadow: 0 0 3px hsla(260, 100%, 70%, 0.7);
+  }
+
+  &:not(.active):hover {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  &:hover > .icon .subicon {
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    top: -16px;
+    right: -16px;
+    border-color: white;
+  }
+
+  &:not(:first-of-type) {
+    border-left: 1px solid rgb(60, 60, 60);
+  }
+  &:not(:last-of-type) {
+    border-right: 0.1rem solid black;
+  }
+
+  a {
+    color: inherit;
+    font-family: monospace;
+    text-decoration: none;
+    padding: 1ch;
+  }
+
+  .icon {
+    padding: 1ch;
+    position: relative;
+
+    .subicon {
+      text-shadow: none;
+      transition: all 40ms ease;
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      background: red;
+      color: white;
+      box-shadow: 0 0 4px rgba(41, 41, 41, 0.405);
+      width: 18px;
+      height: 18px;
+      border-radius: 14px;
+      font-size: 0.7em;
+      font-weight: 700;
+      display: inline-grid;
+      place-items: center;
+      border: 2px solid mix(white, red);
+    }
+  }
+
+  .icon > svg {
+    max-width: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-item {
+    min-width: 100%;
+    justify-content: center;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  .nav-item {
+    font-size: 0.8rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  font-family: system-ui, sans-serif;
+}
